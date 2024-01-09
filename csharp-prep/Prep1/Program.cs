@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        // Ask the user for their first and last name and sotes them into variables.
         Console.Write("What is your first name? ");
         string firstName = Console.ReadLine();
 
@@ -12,6 +13,7 @@ class Program
 
         Console.WriteLine();
 
+        // Displays the variables to the console.
         Console.Write($"My name is {lastName}, {firstName} {lastName}.");
     }
 }
