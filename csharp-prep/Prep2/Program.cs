@@ -4,10 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
+        // Declare the variables
         char grade;
+        char sign;
         string score;
         int userScore;
 
+        // Ask the user 
         Console.WriteLine("Welcome to the Grading Declcaration!");
 
         Console.Write("Plesae enter your score: ");
@@ -41,9 +44,24 @@ class Program
             grade = 'F';
         }
 
+        if (userScore % 10 >= 7 && (grade != 'A' || grade != 'F'))
+        {
+            sign = '+';
+        }
+
+        else if (userScore % 10 < 3 && grade != 'F')
+        {
+            sign = '-';
+        }
+
+        else
+        {
+            sign = ' ';
+        }
+
         if (userScore >= 70)
         {
-            Console.WriteLine($"Congrats on passing you got {userScore}. Which is the letter {grade}");
+            Console.WriteLine($"Congrats on passing you got {userScore}. Which is the letter {grade}{sign}");
         }
 
         else 
