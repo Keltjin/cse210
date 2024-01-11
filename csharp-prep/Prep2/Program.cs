@@ -10,7 +10,7 @@ class Program
         string score;
         int userScore;
 
-        // Ask the user 
+        // Ask the user for their grade score to be stored in a variable then converted into a int.
         Console.WriteLine("Welcome to the Grading Declcaration!");
 
         Console.Write("Plesae enter your score: ");
@@ -19,6 +19,7 @@ class Program
 
         Console.WriteLine();
         
+        // Checks to see where the userScore lines up to give a grade variable.
         if (userScore >= 90)
         {
             grade = 'A';
@@ -44,6 +45,7 @@ class Program
             grade = 'F';
         }
 
+        // Check to see if a sign variable is to be added.
         if (userScore % 10 >= 7 && (grade != 'A' || grade != 'F'))
         {
             sign = '+';
@@ -59,6 +61,7 @@ class Program
             sign = ' ';
         }
 
+        // Determines if the user passes the class or not.
         if (userScore >= 70)
         {
             Console.WriteLine($"Congrats on passing you got {userScore}. Which is the letter {grade}{sign}");
