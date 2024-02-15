@@ -2,9 +2,11 @@ using System.IO;
 public class Journal 
 {
     public List<string> menu = new List<string>();
-    public string entry;
-    public List<string> entires = new List<string>();
+    public string userResponse;
+    // public List<string> entires = new List<string>();
     public List<string> dates = new List<string>();
+    public Entry entry = new Entry();
+
 
     public Journal()
     {
@@ -63,17 +65,17 @@ public class Journal
         string randomPrompt = prompt.DisplayPrompt();
         Console.WriteLine(randomPrompt);
 
-        entry = Console.ReadLine();
-        entires.Add(entry);
+        userResponse = Console.ReadLine();
+        entry.entries.Add(userResponse);
         dates.Add(dateText);
     }
 
     public void DisplayEntries()
     {
-        for (int i = 0; i < entires.Count; i++)
+        for (int i = 0; i < entry.entries.Count; i++)
         {
             Console.WriteLine();
-            Console.WriteLine($"{dates[i]} - {entires[i]}");
+            Console.WriteLine($"{dates[i]} - {entry.entries[i]}");
         }
     }
 
@@ -93,7 +95,7 @@ public class Journal
                     if (parts.Length == 2)
                     {
                         dates.Add(parts[0]);
-                        entires.Add(parts[1]);
+                        entry.entries.Add(parts[1]);
                     }
                 }
             }
@@ -101,9 +103,9 @@ public class Journal
             Console.WriteLine("File loaded succesfully.");
 
             Console.WriteLine("\nLoaded Entries:");
-            for (int i = 0; i < entires.Count; i++)
+            for (int i = 0; i < entry.entries.Count; i++)
             {
-                Console.WriteLine($"{dates[i]} - {entires[i]}");
+                Console.WriteLine($"{dates[i]} - {entry.entries[i]}");
             }
         }
         else
@@ -119,9 +121,9 @@ public class Journal
 
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
-            for (int i = 0; i < entires.Count; i++)
+            for (int i = 0; i < entry.entries.Count; i++)
             {
-                outputFile.WriteLine($"{dates[i]} - {entires[i]}");
+                outputFile.WriteLine($"{dates[i]} - {entry.entries[i]}");
             }
         }
     }
